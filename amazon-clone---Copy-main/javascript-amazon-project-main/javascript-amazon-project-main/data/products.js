@@ -82,6 +82,17 @@ class Product{
       return new Product(productDetail);
     });
     console.log('products loaded');
+    const url = new URL(window.location.href)
+    const query = url.searchParams.get('search')
+    console.log(query)
+
+    if(query){
+      products = products.filter((item) =>{
+        if( item.name.toLowerCase().search(query) != -1 )
+          return item
+    })
+    }
+    console.log(products)
     fun();
     
     });
@@ -90,8 +101,8 @@ class Product{
     xhr.send();
   }
   loadProducts();
-/*
-export const products = [
+
+export const productItem = [
   {
     id: "e43638ce-6aa0-4b85-b27f-e1d07eb678c6",
     image: "images/products/athletic-cotton-socks-6-pairs.jpg",
@@ -756,5 +767,4 @@ export const products = [
   else
   return new Product(productDetail);
 });
-console.log(products);
-*/
+

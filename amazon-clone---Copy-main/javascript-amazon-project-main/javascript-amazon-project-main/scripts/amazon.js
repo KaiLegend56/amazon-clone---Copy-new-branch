@@ -1,7 +1,19 @@
 import {cart, addToCart} from '../data/cart.js';
 import {loadProducts, products} from '../data/products.js';
 import {formatCurrency} from './utils/money.js';
+import { productItem } from '../data/products.js';
+
 loadProducts(renderProductsGrid);
+
+
+document.querySelector('.search-button').addEventListener('click',()=>{
+  const search = document.querySelector('.search-bar').value;
+  //console.log(document.querySelector('.search-bar'))
+  console.log("searched clicked :")
+  console.log(search)
+  window.location.href = `amazon.html?search=${search}`
+})
+
 
 function renderProductsGrid(){
   let productsHTML = '';
