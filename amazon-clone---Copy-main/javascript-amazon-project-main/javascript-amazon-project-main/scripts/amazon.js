@@ -14,6 +14,13 @@ document.querySelector('.search-button').addEventListener('click',()=>{
   window.location.href = `amazon.html?search=${search}`
 })
 
+document.querySelector(".search-bar").addEventListener("keydown",(e)=>{
+  console.log("yeeess")
+  
+  if( e.key == "Enter" )
+    document.querySelector('.search-button').click();
+
+})
 
 function renderProductsGrid(){
   let productsHTML = '';
